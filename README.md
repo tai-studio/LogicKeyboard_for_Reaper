@@ -10,14 +10,14 @@ Inspired by Logic Pro and GarageBand, this script offers a similar virtual keybo
 - Play melodies and trigger samples directly from your keyboard
 - Easy octave shifting with dedicated keys
 - Mod Wheel control via keyboard shortcut
-- Support for both QWERTY and AZERTY layouts
+- Support for QWERTY, QWERTZ and AZERTY layouts
 - Toggle on/off functionality for seamless workflow
 
 ## ⬇️ Installation
 
 1. Download the script files
 2. Import into Reaper and assign a keyboard shortcut for toggle functionality
-3. Choose your preferred layout (QWERTY or AZERTY)
+3. Choose your preferred layout (QWERTY, QWERTZ or AZERTY)
 
 ## 💻 Usage
 
@@ -28,8 +28,14 @@ Press the keyboard shortcut you assigned during installation. This will start th
 Use the keys defined in the AZERTY or QWERTY layout to play MIDI notes.
 
 ### Change Octave
-- Press **Z** to shift the octave down
+- Press **Z** to shift the octave down (**Y** in QWERTZ layout, **W** in AZERTY layout)
 - Press **X** to shift the octave up
+
+### Change Velocity
+Currently only supported in QWERTY and QWERTZ layouts.
+
+- Press **C** to decrease velocity
+- Press **V** to increase velocity
 
 ### Modulation Wheel
 Hold down the **Left Shift** key to simulate moving the Mod Wheel (CC1) to its maximum value (127). Release Shift to return it to zero.
@@ -38,5 +44,6 @@ Hold down the **Left Shift** key to simulate moving the Mod Wheel (CC1) to its m
 
 - **QWERTY** - Standard English keyboard layout
 - **AZERTY** - French keyboard layout
+- **QWERTZ** - German keyboard layout
 
 Perfect for producers on the go or anyone needing quick MIDI access without a physical MIDI keyboard!

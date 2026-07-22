@@ -3,6 +3,7 @@
 -- Adapted by: LFSaw
 -- changelog: 
 --    2026-07-21 -- added velocity control with C and V keys (ableton style)
+--    2026-07-21 -- changed to QWERTZ layout (German keyboard)
 --    Version: 1.2 (QWERTY with Z/X Octave)
 
 -- Initial configuration
@@ -21,8 +22,6 @@ local debug_pressed_keys = {}
 local mod_wheel_value = 0
 local mod_wheel_step = 10
 local mod_wheel_target = 0
--- 0x43 -- C -- decrease velocity (steps are 1, 20, 40, 60, 80, 100, 120, 127)
--- 0x56 -- V -- increase velocity (steps are 1, 20, 40, 60, 80, 100, 120, 127)
 
 -- Table of keys and their associated notes (in semitones from C3 = 60)
 -- ** QWERTY Layout **
@@ -45,9 +44,9 @@ local key_to_note = {
     [0x4F] = 73,  -- O = C#
     [0x4C] = 74,  -- L = D
     [0x50] = 75,  -- P = D#
-    [0x3B] = 76,  -- ; = E  (Semicolon key)
-    [0x27] = 77,  -- ' = F  (Apostrophe key)
-    [0x5D] = 78,  -- [ = F#
+    [0xF6] = 76,  -- ö = E
+    [0xE4] = 77,  -- ä = F
+    [0x2B] = 78,  -- + = A
 }
 
 -- Key interception (blocking shortcuts in Reaper)
@@ -79,19 +78,19 @@ local function update_velocity(step)
     velocity = velocity_steps[velocity_index]
 end
 
-local function debug_log_pressed_keys(key_states)
-    for key = 1, 255 do
-        local state = key_states:byte(key)
-        if state and state ~= 0 then
-            if not debug_pressed_keys[key] then
-                reaper.ShowConsoleMsg(string.format("Pressed: 0x%02X\n", key))
-                debug_pressed_keys[key] = true
-            end
-        else
-            debug_pressed_keys[key] = nil
-        end
-    end
-end
+-- local function debug_log_pressed_keys(key_states)
+--     for key = 1, 255 do
+--         local state = key_states:byte(key)
+--         if state and state ~= 0 then
+--             if not debug_pressed_keys[key] then
+--                 reaper.ShowConsoleMsg(string.format("Pressed: 0x%02X\n", key))
+--                 debug_pressed_keys[key] = true
+--             end
+--         else
+--             debug_pressed_keys[key] = nil
+--         end
+--     end
+-- end
 
 -- Main function
 local function main()
